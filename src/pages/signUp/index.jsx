@@ -51,9 +51,13 @@ const SignUp = props => {
         verifyEmail()
         verifyPassword()
 
+        if(!fullnameError && !emailError && !passwordError) register()
+
     }, [email, password, fullname])
 
     const register = _ => {
+        setSucess("")
+        setFail("")
             if(email !== '' && !Users.find(user => user.email === email)) {
                 setSucess("Signed Up")
                 setFail("")
@@ -73,19 +77,24 @@ const SignUp = props => {
                 <h1>Invision</h1>
             </Header>
 
-            <Sucess>{sucess}</Sucess>
-            <Failed>{fail}</Failed>
+            <Sucess data-testid="sucess">
+                {sucess}
+            </Sucess>
+            <Failed data-testid="fail">
+                {fail}
+            </Failed>
 
             <h2>Getting Stared</h2>                  
-                <form action="register" onSubmit={validadeInput}>
+                <form action="register" data-testid="form-signup" onSubmit={validadeInput}>
                     <Label htmlFor="fullname" hasError={!!fullnameError}>
                         Full Name
-                        <input type="text" 
-                               id="fullname"
-                               placeholder="Your Full Name"
-                               name="fullname"
-                               value={fullname} 
-                               onChange={e => setFullname(e.target.value)}
+                        <input
+                            type="text" 
+                            id="fullname"
+                            placeholder="Your Full Name"
+                            name="fullname"
+                            value={fullname} 
+                            onChange={e => setFullname(e.target.value)}
                         />
                         <span className="error" id="nameError">{fullnameError}</span>
                     </Label>
@@ -111,7 +120,7 @@ const SignUp = props => {
                         />
                         <span className="error" id="passwordError">{passwordError}</span>
                     </Label>
-                    <Button type="submit">Sign Up</Button>
+                    <Button type="submit" data-testid="btn-signup">Sign Up</Button>
                 </form>
                 <Or>
                     <div className="line"></div>

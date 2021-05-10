@@ -1,37 +1,36 @@
 import React from 'react'
 import { fireEvent, getByText, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import SignIn from './../pages/signIn/index';
+import SignUp from './../pages/signUp/index';
 
 describe('Test for Sign In Component', () => {
     it('Should sign in the user when form has been submited', async () => {
 
-      const { getByTestId } = render(<SignIn />);
+      const { getByTestId } = render(<SignUp />);
 
-      const fieldNode = await waitFor(() => getByTestId('form-signin'));
+      const fieldNode = await waitFor(() => getByTestId('form-signup'));
 
-      const [email, password] = ['thiago@gmail.com', '123abc']
+      const [fullname, email, password] = ['Thiago','thiago@gmail.com', '123abc']
 
 
     fireEvent.change(
         fieldNode,
         {
           target: {
+            fullname,
             email,
-            password,
+            password
           },
         },
     );
-
+     
       expect(fieldNode.email).toEqual(email)
       expect(fieldNode.email).toContain('@')
       expect(fieldNode.email).toContain('.com')
   
       expect(fieldNode.password).toEqual(password)
 
-      const btnNode = await waitFor(() => getByTestId('btn-signin'));
-
-
+      const btnNode = await waitFor(() => getByTestId('btn-signup'));
 
       fireEvent.click(btnNode);
       
@@ -42,9 +41,9 @@ describe('Test for Sign In Component', () => {
 
 describe('Test for Sign In Component', () => {
   it('Should not sign when user when form has been submited', async () => {
-    const { getByTestId } = render(<SignIn />);
+    const { getByTestId } = render(<SignUp />);
 
-      const fieldNode = await waitFor(() => getByTestId('form-signin'));
+      const fieldNode = await waitFor(() => getByTestId('form-signup'));
 
       const [email, password] = ['thiago@gma', '123ac']
 
@@ -61,15 +60,11 @@ describe('Test for Sign In Component', () => {
   
       expect(fieldNode.password).toEqual(password)
 
-      const btnNode = await waitFor(() => getByTestId('btn-signin'));
+      const btnNode = await waitFor(() => getByTestId('btn-signup'));
 
 
       fireEvent.click(btnNode);
       
       expect(await waitFor(() => getByTestId('fail')))
-
     });
   })
-
-
-  

@@ -5,10 +5,9 @@ import { GlobalStyle, PageWrap } from './global.js'
 import Slider from './pages/slider'
 import Routes from './routes'
 
-const App = props => {
-
+const App = ()=> {
     return (
-        <div className="App">
+        <>
             <GlobalStyle />
             <PageWrap>
                 <Router>
@@ -16,7 +15,7 @@ const App = props => {
                     <Routes />
                 </Router>            
             </PageWrap>
-        </div>
+        </>
     )
 }
 

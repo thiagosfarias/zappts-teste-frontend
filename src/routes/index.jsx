@@ -3,20 +3,14 @@ import { Switch, Route } from 'react-router-dom';
 import SignIn from '../pages/signIn';
 import SignUp from '../pages/signUp';
 
-const Routes = props => {
+const Routes = () => {
     return (
+        <Switch>
+            <Route exact path="/" component={SignIn} />
+            <Route path="/signup" component={SignUp} />
 
-            <Switch>
-                <Route exact path="/">
-                    <SignIn />
-                </Route>
-                <Route path="/signup">
-                    <SignUp />
-                </Route>
-                <Route path="*">
-                    <SignIn />
-                </Route>
-            </Switch>
+            <Route path="*" component={SignIn} />
+        </Switch>
     )
 }
 

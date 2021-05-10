@@ -1,30 +1,5 @@
-import styled, { keyframes, css } from 'styled-components';
-
-//Colors
-const primaryColor = "#A9C5BA"
-const secondaryColor = "#707070"
-const tertiaryColor = '#BDBDBD';
-const errorColor = '#E53935';
-
-
-//Margins
-const littleMarginSize = '5px';
-const mediumMarginSize = '12px';
-
-//Fonts
-const secondaryFontSize = '12px';
-const principalFontSize = '14px';
-const mobileFontSize = '20px';
-const tabletViewPort = '768px';
-const largeTabletViewPort = '1024px';
-
-
-
-//Container 
-const minHeight = "600px"
-const minWidth = "600px"
-const wraper = "1 0 auto"
-const defaultPercentSize = '100%';
+import styled, { keyframes } from 'styled-components';
+import theme from '../../theme';
 
 export const Aside = styled.aside`
     display: flex;
@@ -40,20 +15,9 @@ export const Aside = styled.aside`
     background-color: #A9C5BA;
     font-weight: '300';
 
-    @media only screen 
-    and (min-device-width: 414px) 
-    and (max-device-width: 736px) 
-    and (-webkit-min-device-pixel-ratio: 3)  {
-        height: 35%;
-        h1 {
-            display: block;
-            align-items: center;
-            margin: 0;
-            margin-top: 1rem;
-            font-size: 40px;
-        }
+    @media only screen and (max-width: 420px)  and (max-width: 720px) and (max-width: 1024px){
+        width: 100%
     }
-
 
 `
 
@@ -63,47 +27,54 @@ export const SlideItem = styled.div`
     justify-content: center;
     align-items: center;
 
-    img{
-        width: 720px;
-        max-width: 800px;
+    img {
+        width: 60vh;
+        height: auto;
     }
 
-    p{
-        text-align: justify;
-        text-justify: inter-word;
+    p {
+        text-align: center;
         margin-left: 2rem;
         margin-right: 2rem;
-        max-width: 50%;
+        max-width: 75%;
+        height: 60px;
     }
 
-    @media only screen 
-    and (min-device-width: 414px) 
-    and (max-device-width: 736px) 
-    and (-webkit-min-device-pixel-ratio: 3)  {
+    @media (max-width: 600px) {
         img {
-            display: block;
-            margin-top:1rem;
-            width: 50%;
-            height:50%;
+            margin-top: 2rem;
+            width: 45vh
         }
-        
+    }
+
+    @media (max-width: 768px) {
+        img {
+            margin-top: 2rem;
+            width: 28vh
+        }
+    }
+
+    @media (max-width: 1024px) {
+        img {
+            width: 40vh
+        }
     }
 `
 
 export const Nav = styled.button`
-        border: none;
-        color: rgba(255,255,255,0.0);
-        background-color: rgba(255,255,255,0.5);
-        border-radius: 50%;
-        height: 10px;
-        margin-left: .3rem;
-        margin-right: .3rem;
-        cursor: pointer;
+    border: none;
+    color: rgba(255,255,255,0.0);
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    height: 10px;
+    margin-left: .3rem;
+    margin-right: .3rem;
+    cursor: pointer;
 
-        ${props => props.active ? `
-            border-radius: 5px;
-            width: 2.2rem;
-            background-color: white;
+    ${props => props.active ? `
+        border-radius: 5px;
+        width: 2.2rem;
+        background-color: white;
     ` : ""}
 `
 
@@ -111,15 +82,6 @@ export const NavigationBar = styled.div`
     display: flex;
     justify-content: center;
     padding-bottom: 1rem;
-
-    @media only screen 
-    and (min-device-width: 414px) 
-    and (max-device-width: 736px) 
-    and (-webkit-min-device-pixel-ratio: 3)  {
-        button {
-            display: none;
-        }
-    }
 `
 
 const appearFromRight = keyframes`
@@ -137,14 +99,14 @@ export const SlideItemAnimated = styled.div`
   display: flex;
   margin: auto;
   width: 50%;
-  min-width: ${minHeight};
-  min-height: ${minWidth};
+  min-width: ${theme.minHeight};
+  min-height: ${theme.minWidth};
   display: flex;
-  flex: ${wraper};
+  flex: ${theme.wraper};
   flex-direction: column;
   align-items: center;
 
-  max-height: ${defaultPercentSize};
+  max-height: ${theme.defaultPercentSize};
 
   animation: ${appearFromRight} 3s infinite;
 `

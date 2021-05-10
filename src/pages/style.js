@@ -1,140 +1,78 @@
 import styled, { keyframes, css } from 'styled-components'
 
-
-//Colors
-const primaryColor = "#A9C5BA"
-const secondaryColor = "#707070"
-const tertiaryColor = '#BDBDBD';
-const errorColor = '#E53935';
-
-
-//Margins
-const littleMarginSize = '5px';
-const mediumMarginSize = '12px';
-
-//Fonts
-const secondaryFontSize = '12px';
-const principalFontSize = '14px';
-const mobileFontSize = '20px';
-const tabletViewPort = '768px';
-const largeTabletViewPort = '1024px';
-
-
-//Padings & Borders
-const defaultVerticalPaddingSize = '10px';
-const commonBorderStyle = '1px solid';
-
-
-//Default Button
-const buttonMarginTop = "2.7rem"
-const buttonMarginBottom = "2.3rem"
-const buttonPadding = "0 16px"
-const buttonHeight = "45px"
-const buttonWidth = "175px"
-const buttonBorderRadius = "40px"
-
-//Container 
-const minHeight = "600px"
-const minWidth = "600px"
-const wraper = "1 0 auto"
-const defaultPercentSize = '100%';
+import theme from '../theme';
 
 export const Button = styled.button`
-    border: none; 
-    margin: auto;
-    margin-top: ${buttonMarginTop};
-    margin-bottom: ${buttonMarginBottom};
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    padding: ${buttonPadding};
-    height: ${buttonHeight};
-    width: ${buttonWidth};
-    border-radius: ${buttonBorderRadius};   
-    background-color: ${secondaryColor};
-    color: white;
-    cursor: pointer;
-    
-    @media only screen 
-    and (min-device-width: 414px) 
-    and (max-device-width: 736px) 
-    and (-webkit-min-device-pixel-ratio: 3) {
-      font-size: 18px;
-    }
+  border: none; 
+  margin: 10px auto;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: ${theme.buttonPadding};
+  height: ${theme.buttonHeight};
+  width: ${theme.buttonWidth};
+  border-radius: ${theme.buttonBorderRadius};   
+  background-color: ${theme.secondaryColor};
+  color: white;
+  cursor: pointer;
+  
+  @media only screen and (max-width: 600px){
+    font-size: 18px;
+  }
 `
-
 
 export const Container = styled.div`
   display: flex;
   width: 50%;
-  min-width: ${minHeight};
-  min-height: ${minWidth};
+  min-width: ${theme.minHeight};
+  min-height: ${theme.minWidth};
   display: flex;
-  flex: ${wraper};
+  flex: ${theme.wraper};
   flex-direction: column;
   align-items: center;
+  margin-bottom: 15px;
   
   form {
     width: 75%;
   }
 
   a.link{
-    margin-top: ${mediumMarginSize};
-    font-size: ${secondaryFontSize};
-    text-decoration: underline ${primaryColor};
-    color: ${primaryColor};
+    margin-left: 5px;
+    margin-top: ${theme.mediumMarginSize};
+    font-size: ${theme.secondaryFontSize};
+    text-decoration: underline ${theme.primaryColor};
+    color: ${theme.primaryColor};
   }
 
   span{
-    font-size: ${secondaryFontSize};
-    color: ${secondaryColor}
+    font-size: ${theme.secondaryFontSize};
+    color: ${theme.secondaryColor}
   }
 
   a {
     text-decoration: none;
     text-align: end;
-    color: ${secondaryColor};
-  }
-
-  h1 {
-      font-weight: 200;
-      color: black;
-      margin-bottom: 4.5rem;
+    color: ${theme.secondaryColor};
   }
 
   h2 {
-    color: ${secondaryColor};
+    color: ${theme.secondaryColor};
   }
 
   span.error{
-    margin-top: ${mediumMarginSize};
-    color: ${errorColor};
+    margin-top: ${theme.mediumMarginSize};
+    color: ${theme.errorColor};
   }
 
-    @media only screen 
-    and (min-device-width: 414px) 
-    and (max-device-width: 736px) 
-    and (-webkit-min-device-pixel-ratio: 3)  {
-      font-size: 25px;
-      height: 100%;
-      header {
-        display: none;
-      }
-
-      span, a.link{
-        font-size: ${mobileFontSize};
-        margin-bottom: ${littleMarginSize};
-      }
-      
-      form {
-        width: 75%;
-        height: 100%;
-      }
-  }
-
-  @media only screen and (max-width: 720px){
-    header {
-      display: none;
+  @media only screen and (max-width: 600px) {
+    a, a.link{
+      font-size: 16px;
+    }
+    h2 {
+      margin-top: 35px;
+    };
+    span{
+      font-size: 18px;
     }
   }
 `;
@@ -143,45 +81,44 @@ export const Container = styled.div`
 export const Label = styled.label`
   display: flex;
   flex-direction: column;
-  font-size: ${secondaryFontSize};
+  font-size: ${theme.secondaryFontSize};
   margin-top: 1rem;
-  margin-bottom: ${littleMarginSize};
+  margin-bottom: ${theme.littleMarginSize};
   color: gray;
+
   input {
-    padding: ${defaultVerticalPaddingSize};
+    padding: ${theme.defaultVerticalPaddingSize};
     outline: none;
-    font-size: ${principalFontSize};
+    font-size: ${theme.principalFontSize};
     border: none;
-    border-bottom: ${commonBorderStyle} ${tertiaryColor};
-    ${props => props.hasError && css`border-bottom: ${commonBorderStyle} ${errorColor};`}
+    border-bottom: ${theme.commonBorderStyle} ${theme.tertiaryColor};
+    ${props => props.hasError && css`border-bottom: ${theme.commonBorderStyle} ${theme.errorColor};`};
   }
 
-    
 
   span {
     display: block;
-    margin: ${littleMarginSize};
-    color: ${errorColor};
+    margin: ${theme.littleMarginSize};
+    color: ${theme.errorColor};
   }
 
-  @media only screen and (max-width: 650px) {
+  @media only screen and (max-width: 600px) {
     font-size: 22px;
     span {
       font-size: 18px;
     }
-    input {
+
+    input, input::placeholder {
       font-size: 22px;
     }
-    input::placeholder{
-      font-size: 18px;
-    }
+
   }
 
   ${props => {
     if(props.hasError){
       `
         input {
-          border-bottom: ${commonBorderStyle} ${errorColor};
+          border-bottom: ${theme.commonBorderStyle} ${theme.errorColor};
         }
       `
     }
@@ -205,7 +142,7 @@ export const Or = styled.div`
   grid-template-columns: 8rem 2rem 8rem;
   margin-top: 1rem;
   margin-bottom: 2.3rem;
-  font-size: ${secondaryFontSize};
+  font-size: ${theme.secondaryFontSize};
 
   .line {
     border-bottom: solid 1px #c2c2c2;
@@ -219,45 +156,58 @@ export const Or = styled.div`
 export const Header = styled.header`
   width: 100%;
   margin-left: 125px;
+
   h1 {
     text-align: right;
     font-size: 2rem;
     font-weight: 700;
+    margin: 20px 0 0;
+    padding-right: 40px;
+  }
+
+  @media only screen and (max-width: 720px){
+    header {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: 600px){
+    & {
+      display: none;
+    }
   }
 `
 export const GoogleButton = styled.div`
-      font-size: 14px;
-      align-items: center;
-      display: flex;
-      padding: 0 16px;
-      height: 50px;
-      width: 200px;
-      border-radius: 40px;
-      transition: background-color 0.4s;
-      box-shadow: 0px 3px 6px #00000029;
-      margin-bottom: 2.5rem;
-      p {
-        margin-left: 12px;
-      }
+  font-size: 14px;
+  align-items: center;
+  display: flex;
+  padding: 0 16px;
+  height: 50px;
+  width: 200px;
+  border-radius: 40px;
+  transition: background-color 0.4s;
+  box-shadow: 0px 3px 6px #00000029;
+  margin-bottom: 25px;
+  p {
+    margin-left: 12px;
+  }
 
-      img{
-        height: 30px;
-        width: 30px;
-      }
+  img{
+    height: 30px;
+    width: 30px;
+  }
 
-      @media only screen and (max-width: 720px){
-        font-size: 18px;
-        width: 205px;
-      }
+  @media only screen and (max-width: 720px){
+    font-size: 18px;
+    width: 205px;
+  }
 `
 const appearFromRight = keyframes`
   from {
     opacity: 0;
-    transform: translateX(50px);
   }
   to {
     opacity: 1;
-    transform: translateX(0px);
   }
 `
 
@@ -269,17 +219,16 @@ export const AnimationContainer = styled.div`
   display: flex;
   margin: auto;
   width: 50%;
-  min-width: ${minHeight};
-  min-height: ${minWidth};
+  min-width: ${theme.minHeight};
+  min-height: ${theme.minWidth};
   display: flex;
-  flex: ${wraper};
+  flex: ${theme.wraper};
   flex-direction: column;
   align-items: center;
 
-  max-height: ${defaultPercentSize};
+  max-height: ${theme.defaultPercentSize};
 
   animation: ${appearFromRight} 1s;
-
 `;
 
 export const Loader = styled.div`
@@ -287,7 +236,7 @@ export const Loader = styled.div`
 
   border: 16px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 16px solid ${primaryColor};
+  border-top: 16px solid ${theme.primaryColor};
   width: 30px;
   height: 30px;
   -webkit-animation: spin 2s linear infinite; /* Safari */
@@ -297,18 +246,16 @@ export const Loader = styled.div`
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
-
-
 `
 
 export const Sucess = styled.div`
-    margin-top: ${littleMarginSize};
-    font-size: ${secondaryFontSize};
-    color: ${primaryColor};
+  margin-top: ${theme.littleMarginSize};
+  font-size: ${theme.secondaryFontSize};
+  color: ${theme.primaryColor};
 `
 
 export const Failed = styled.div`
-    margin-top: ${littleMarginSize};
-    font-size: ${secondaryFontSize};
-    color: ${errorColor};
+  margin-top: ${theme.littleMarginSize};
+  font-size: ${theme.secondaryFontSize};
+  color: ${theme.errorColor};
 `

@@ -54,11 +54,9 @@ const SignIn = props => {
         setSucess("")
         setFail("")
         if (users.find(user => user.email === email && user.password === password)) {
-            console.log("sucess")
             setSucess("Credentials Valid")
             setFail("")
         } else {
-            console.log("fail")
             setFail("Credentials Invalid")
             setSucess("")
         }
@@ -72,10 +70,10 @@ const SignIn = props => {
                     <h1>Invision</h1>
                 </Header>
 
-                <Sucess>
+                <Sucess data-testid="sucess">
                     {sucess}
                 </Sucess>
-                <Failed>
+                <Failed data-testid="fail">
                     {fail}
                 </Failed>
 
