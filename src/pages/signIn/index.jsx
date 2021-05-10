@@ -77,7 +77,7 @@ const SignIn = props => {
                     {fail}
                 </Failed>
 
-                <h2>Welcom to Invision</h2>
+                <h2>Welcome to Invision</h2>
 
                 <form action="login" onSubmit={validadeInput} id="form-signin" data-testid="form-signin">
 

@@ -15,7 +15,7 @@ export const Aside = styled.aside`
     background-color: #A9C5BA;
     font-weight: '300';
 
-    @media only screen and (max-width: 420px)  and (max-width: 720px) and (max-width: 1024px){
+    @media only screen and (max-width: 420px)  and (max-width: 700px) and (max-width: 1024px){
         width: 100%
     }
 

@@ -84,7 +84,7 @@ const SignUp = props => {
                 {fail}
             </Failed>
 
-            <h2>Getting Stared</h2>                  
+            <h2>Getting Started</h2>                  
                 <form action="register" data-testid="form-signup" onSubmit={validadeInput}>
                     <Label htmlFor="fullname" hasError={!!fullnameError}>
                         Full Name

@@ -189,7 +189,7 @@ export const GoogleButton = styled.div`
   box-shadow: 0px 3px 6px #00000029;
   margin-bottom: 25px;
   p {
-    margin-left: 12px;
+    margin: auto;
   }
 
   img{
