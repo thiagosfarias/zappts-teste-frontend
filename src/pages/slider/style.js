@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import theme from '../../theme';
+import { screen } from '@testing-library/react';
 
 export const Aside = styled.aside`
     display: flex;
@@ -32,12 +33,23 @@ export const SlideItem = styled.div`
         height: auto;
     }
 
+    h2{
+        text-align: left;
+        font: normal normal normal 30px/38px;
+        font-family: 'Mulish', sans-serif; 
+        letter-spacing: 0px;
+        color: #FFFFFF;
+        opacity: 1;
+    }
+
     p {
         text-align: center;
         margin-left: 2rem;
         margin-right: 2rem;
         max-width: 75%;
         height: 60px;
+        font: normal normal normal 20px/25px;
+        font-family: 'Mulish', sans-serif;
     }
 
     @media (max-width: 600px) {
@@ -76,6 +88,10 @@ export const Nav = styled.button`
         width: 2.2rem;
         background-color: white;
     ` : ""}
+
+    @media only screen and (max-width: 600px){
+        display: none;
+    }
 `
 
 export const NavigationBar = styled.div`

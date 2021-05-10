@@ -15,6 +15,8 @@ export const Button = styled.button`
   background-color: ${theme.secondaryColor};
   color: white;
   cursor: pointer;
+  font: normal normal normal 14px/20px;
+  font-family: 'Mulish', sans-serif;
   
   @media only screen and (max-width: 600px){
     font-size: 18px;
@@ -40,6 +42,7 @@ export const Container = styled.div`
     margin-left: 5px;
     margin-top: ${theme.mediumMarginSize};
     font-size: ${theme.secondaryFontSize};
+    font-family: 'Melish', sans-serif;
     text-decoration: underline ${theme.primaryColor};
     color: ${theme.primaryColor};
   }
@@ -47,6 +50,7 @@ export const Container = styled.div`
   span{
     font-size: ${theme.secondaryFontSize};
     color: ${theme.secondaryColor}
+    font-family: 'Melish', sans-serif;
   }
 
   a {
@@ -56,7 +60,12 @@ export const Container = styled.div`
   }
 
   h2 {
+    text-align: left;
+    font: normal normal normal 30px/38px;
+    font-family: 'Mulish', sans-serif;
+    letter-spacing: 0px;
     color: ${theme.secondaryColor};
+    opacity: 1;
   }
 
   span.error{
@@ -84,12 +93,17 @@ export const Label = styled.label`
   font-size: ${theme.secondaryFontSize};
   margin-top: 1rem;
   margin-bottom: ${theme.littleMarginSize};
-  color: gray;
+  font: normal normal normal 16px/20px;
+  font-family: 'Mulish', sans-serif;
+  letter-spacing: 0px;
+  color: #000000;
+  opacity: 1;
 
   input {
     padding: ${theme.defaultVerticalPaddingSize};
     outline: none;
     font-size: ${theme.principalFontSize};
+    text-align: left;
     border: none;
     border-bottom: ${theme.commonBorderStyle} ${theme.tertiaryColor};
     ${props => props.hasError && css`border-bottom: ${theme.commonBorderStyle} ${theme.errorColor};`};
@@ -143,6 +157,7 @@ export const Or = styled.div`
   margin-top: 1rem;
   margin-bottom: 2.3rem;
   font-size: ${theme.secondaryFontSize};
+  font-family: 'Mulish', sans-serif;
 
   .line {
     border-bottom: solid 1px #c2c2c2;
@@ -150,6 +165,7 @@ export const Or = styled.div`
 
   span {
       margin: auto;
+      font-family: 'Mulish', sans-serif;
   }
 `
 
@@ -159,10 +175,10 @@ export const Header = styled.header`
 
   h1 {
     text-align: right;
-    font-size: 2rem;
-    font-weight: 700;
-    margin: 20px 0 0;
-    padding-right: 40px;
+    font: normal normal 900 35px/48px;
+    font-family: 'Lato';
+    color: #000000;
+    opacity: 1;
   }
 
   @media only screen and (max-width: 720px){
@@ -178,7 +194,8 @@ export const Header = styled.header`
   }
 `
 export const GoogleButton = styled.div`
-  font-size: 14px;
+  text-align: left;
+  font: normal normal normal 14px/20px 'Lato';
   align-items: center;
   display: flex;
   padding: 0 16px;
@@ -251,11 +268,13 @@ export const Loader = styled.div`
 export const Sucess = styled.div`
   margin-top: ${theme.littleMarginSize};
   font-size: ${theme.secondaryFontSize};
+  font-family: 'Mulish', sans-serif;
   color: ${theme.primaryColor};
 `
 
 export const Failed = styled.div`
   margin-top: ${theme.littleMarginSize};
   font-size: ${theme.secondaryFontSize};
+  font-family: 'Mulish', sans-serif;
   color: ${theme.errorColor};
 `
